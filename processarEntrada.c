@@ -4,6 +4,7 @@
 #include <string.h>
 #include "arquivos.h"
 #include "objetos/forma.h"
+#include "objetos/texto.h"
 #include "processarEntradaGeo.h"
 
 void processarEntrada() {
@@ -24,10 +25,13 @@ void processarEntrada() {
 	}
 
 	alocarVetorFormas(nx);
+	alocarVetorTextos(nx);
 
 	inicializarVetorFormas(nx);
+	inicializarVetorTextos(nx);
 
 	processarEntradaGeo();
 
 	freeVetorFormas(nx);
+	freeVetorTextos(nx);
 }
