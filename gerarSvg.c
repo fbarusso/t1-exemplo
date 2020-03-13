@@ -43,13 +43,13 @@ void svg_imprimirVetorFormas(FILE* arquivoSaida, int tamanho) {
 }
 
 void svg_imprimirTexto(FILE* arquivoSaida, Forma texto) {
-	fprintf(arquivoSaida, "\n\t<text id=\"%d\"", texto_getId(texto));
-	fprintf(arquivoSaida, " x=\"%lf\"", texto_getX(texto));
-	fprintf(arquivoSaida, " y=\"%lf\"", texto_getY(texto));
-	fprintf(arquivoSaida, " stroke=\"%s\"", texto_getCorBorda(texto));
-	fprintf(arquivoSaida, " fill=\"%s\">", texto_getCorPreenchimento(texto));
-	fprintf(arquivoSaida, " %s", texto_getConteudo(texto));
-	fprintf(arquivoSaida, " </text>\n");
+	fprintf(arquivoSaida, "\n\t<text\n\t\tid=\"%d\"", texto_getId(texto));
+	fprintf(arquivoSaida, "\n\t\tx=\"%lf\"", texto_getX(texto));
+	fprintf(arquivoSaida, "\n\t\ty=\"%lf\"", texto_getY(texto));
+	fprintf(arquivoSaida, "\n\t\tstroke=\"%s\"", texto_getCorBorda(texto));
+	fprintf(arquivoSaida, "\n\t\tfill=\"%s\">", texto_getCorPreenchimento(texto));
+	fprintf(arquivoSaida, "\n\t\t%s", texto_getConteudo(texto));
+	fprintf(arquivoSaida, "\n\t</text>\n");
 }
 
 void svg_imprimirVetorTextos(FILE* arquivoSaida, int tamanho) {

@@ -5,6 +5,8 @@ typedef void* Texto;
 
 Texto texto_criar(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento);
 
+int texto_getContador();
+
 int texto_getId(Texto parametroTexto);
 
 double texto_getX(Texto parametroTexto);

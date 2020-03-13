@@ -6,6 +6,8 @@ typedef void* Forma;
 Forma forma_criar(int id, double x, double y, double r, double w, double h, char* corBorda, 
 char* corPreenchimento, char* tipo);
 
+int forma_getContador();
+
 int forma_getId(Forma formaParametro);
 
 double forma_getX(Forma formaParametro);

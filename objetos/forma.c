@@ -14,6 +14,8 @@ typedef struct structForma * ponteiroForma;
 
 static Forma* vetorFormas;
 
+static int contador = -1;
+
 Forma forma_criar(int id, double x, double y, double r, double w, double h, char* corBorda, 
 char* corPreenchimento, char* tipo) {
 
@@ -33,6 +35,11 @@ char* corPreenchimento, char* tipo) {
 	strcpy(forma->tipo, tipo);
 
 	return forma;
+}
+
+int forma_getContador() {
+	contador++;
+	return contador;
 }
 
 int forma_getId(Forma formaParametro) {

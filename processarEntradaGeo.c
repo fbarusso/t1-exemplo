@@ -29,7 +29,7 @@ void processarEntradaGeo() {
 
 			Forma forma = forma_criar(id, x, y, r, 0, 0, corBorda, corPreenchimento, "c");
 
-			vetorFormas[id] = forma;
+			vetorFormas[forma_getContador()] = forma;
 		}
 
 		else if(!strcmp(operacao, "r")) {
@@ -38,7 +38,7 @@ void processarEntradaGeo() {
 
 			Forma forma = forma_criar(id, x, y, 0, w, h, corBorda, corPreenchimento, "r");
 
-			vetorFormas[id] = forma;
+			vetorFormas[forma_getContador()] = forma;
 		}
 
 		else if(!strcmp(operacao, "t")) {
@@ -47,7 +47,7 @@ void processarEntradaGeo() {
 
 			Texto texto = texto_criar(id, x, y, conteudo, corBorda, corPreenchimento);
 
-			vetorTextos[id] = texto;
+			vetorTextos[texto_getContador()] = texto;
 		}
 	}
 }

@@ -10,4 +10,4 @@ siguel: $(OBJECTS)
 	$(CC) $(OBJECTS) -g $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(EXEC_NAME)
 
 clean:
-	rm -rf *.o siguel objetos/*.o
+	rm -rf *.o siguel objetos/*.o saida/*

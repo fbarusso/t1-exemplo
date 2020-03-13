@@ -14,6 +14,8 @@ typedef struct structTexto * ponteiroTexto;
 
 static Texto* vetorTextos;
 
+static int contador = -1;
+
 Texto texto_criar(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento) {
 
 	ponteiroTexto texto;
@@ -29,6 +31,11 @@ Texto texto_criar(int id, double x, double y, char* conteudo, char* corBorda, ch
 	strcpy(texto->corPreenchimento, corPreenchimento);
 
 	return texto;
+}
+
+int texto_getContador() {
+	contador++;
+	return contador;
 }
 
 int texto_getId(Texto parametroTexto) {
