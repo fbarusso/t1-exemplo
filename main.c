@@ -6,14 +6,14 @@
 #include "arquivos.h"
 #include "processarEntrada.h"
 
-int main(int argc, char * argv[]) {
+int main(int argc, char* argv[]) {
 
 	// Argumentos
 
 	char * diretorioEntrada = NULL;
-    char * nomeEntradaGeo = NULL;
-    char * nomeEntradaQry = NULL;
-    char * diretorioSaida = NULL;
+	char * nomeEntradaGeo = NULL;
+	char * nomeEntradaQry = NULL;
+	char * diretorioSaida = NULL;
 
 	int i = 1;
 
@@ -26,20 +26,20 @@ int main(int argc, char * argv[]) {
 			strcpy(diretorioEntrada, argv[i]);
 		}
 
-        if (strcmp("-f", argv[i]) == 0) {
+		if (strcmp("-f", argv[i]) == 0) {
 			i++;
 			nomeEntradaGeo = (char*) malloc((strlen(argv[i]) + 1) * sizeof(char));
 			strcpy(nomeEntradaGeo, argv[i]);
 		}
 
-        if (strcmp("-q", argv[i]) == 0) {
+		if (strcmp("-q", argv[i]) == 0) {
 			i++;
 			nomeEntradaQry = (char*) malloc((strlen(argv[i]) + 1) * sizeof(char));
 			strcpy(nomeEntradaQry, argv[i]);
 			setFlagConsulta();
 		}
 
-        if (strcmp("-o", argv[i]) == 0) {
+		if (strcmp("-o", argv[i]) == 0) {
 			i++;
 			diretorioSaida = (char*) malloc((strlen(argv[i]) + 1) * sizeof(char));
 			strcpy(diretorioSaida, argv[i]);
@@ -90,5 +90,5 @@ int main(int argc, char * argv[]) {
 		free(nomeEntradaQry);
 	}
 
-    return 0;
+	return 0;
 }

@@ -2,7 +2,7 @@ CC = gcc
 COMPILER_FLAGS = -std=c99 -fstack-protector-all
 LINKER_FLAGS =
 EXEC_NAME = siguel
-OBJECTS = main.o argumentos.o arquivos.o processarEntrada.o processarEntradaGeo.o objetos/forma.o objetos/texto.o
+OBJECTS = main.o argumentos.o arquivos.o processarEntrada.o processarEntradaGeo.o gerarSvg.o objetos/forma.o objetos/texto.o
 
 all: $(EXEC_NAME)
 

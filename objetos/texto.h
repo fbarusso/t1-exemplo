@@ -3,16 +3,28 @@
 
 typedef void* Texto;
 
-Texto criarTexto(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento);
+Texto texto_criar(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento);
 
-void freeTexto(Texto textoParametro);
+int texto_getId(Texto parametroTexto);
 
-Texto* getVetorTextos();
+double texto_getX(Texto parametroTexto);
 
-void alocarVetorTextos(int tamanho);
+double texto_getY(Texto parametroTexto);
 
-void inicializarVetorTextos(int tamanho);
+char* texto_getConteudo(Texto parametroTexto);
 
-void freeVetorTextos(int tamanho);
+char* texto_getCorBorda(Texto parametroTexto);
+
+char* texto_getCorPreenchimento(Texto parametroTexto);
+
+void texto_free(Texto textoParametro);
+
+Texto* texto_getVetor();
+
+void texto_alocarVetor(int tamanho);
+
+void texto_inicializarVetor(int tamanho);
+
+void texto_freeVetor(int tamanho);
 
 #endif

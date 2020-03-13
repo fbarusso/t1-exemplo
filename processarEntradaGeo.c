@@ -1,4 +1,4 @@
-#include "processarEntrada.h"
+#include "processarEntradaGeo.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -13,8 +13,8 @@ void processarEntradaGeo() {
 
 	FILE* arquivoEntradaGeo = getArquivoEntradaGeo();
 
-	Forma* vetorFormas = getVetorFormas();
-	Forma* vetorTextos = getVetorTextos();
+	Forma* vetorFormas = forma_getVetor();
+	Forma* vetorTextos = texto_getVetor();
 
 	while(1) {
 		fscanf(arquivoEntradaGeo, "%s", operacao);
@@ -27,7 +27,7 @@ void processarEntradaGeo() {
 			fscanf(arquivoEntradaGeo, "%d %lf %lf %lf %s %s", &id, &r, &x, &y, corBorda, 
 			corPreenchimento);
 
-			Forma forma = criarForma(id, x, y, r, 0, 0, corBorda, corPreenchimento, "c");
+			Forma forma = forma_criar(id, x, y, r, 0, 0, corBorda, corPreenchimento, "c");
 
 			vetorFormas[id] = forma;
 		}
@@ -36,7 +36,7 @@ void processarEntradaGeo() {
 			fscanf(arquivoEntradaGeo, "%d %lf %lf %lf %lf %s %s", &id, &w, &h, &x, &y, corBorda, 
 			corPreenchimento);
 
-			Forma forma = criarForma(id, x, y, 0, w, h, corBorda, corPreenchimento, "r");
+			Forma forma = forma_criar(id, x, y, 0, w, h, corBorda, corPreenchimento, "r");
 
 			vetorFormas[id] = forma;
 		}
@@ -45,7 +45,7 @@ void processarEntradaGeo() {
 			fscanf(arquivoEntradaGeo, "%d %lf %lf %s %s %s", &id, &x, &y, conteudo, corBorda, 
 			corPreenchimento);
 
-			Texto texto = criarTexto(id, x, y, conteudo, corBorda, corPreenchimento);
+			Texto texto = texto_criar(id, x, y, conteudo, corBorda, corPreenchimento);
 
 			vetorTextos[id] = texto;
 		}

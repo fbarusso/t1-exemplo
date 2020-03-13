@@ -14,7 +14,7 @@ typedef struct structTexto * ponteiroTexto;
 
 static Texto* vetorTextos;
 
-Texto criarTexto(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento) {
+Texto texto_criar(int id, double x, double y, char* conteudo, char* corBorda, char* corPreenchimento) {
 
 	ponteiroTexto texto;
 
@@ -31,30 +31,60 @@ Texto criarTexto(int id, double x, double y, char* conteudo, char* corBorda, cha
 	return texto;
 }
 
+int texto_getId(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->id;
+}
+
+double texto_getX(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->x;
+}
+
+double texto_getY(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->y;
+}
+
+char* texto_getConteudo(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->conteudo;
+}
+
+char* texto_getCorBorda(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->corBorda;
+}
+
+char* texto_getCorPreenchimento(Texto parametroTexto) {
+	ponteiroTexto texto = (ponteiroTexto) parametroTexto;
+	return texto->corPreenchimento;
+}
+
 // TODO: Arrumar para ser acessado fora
-void freeTexto(Texto textoParametro) {
+void texto_free(Texto textoParametro) {
 	free(textoParametro);
 }
 
-Texto* getVetorTextos() {
+Texto* texto_getVetor() {
 	return vetorTextos;
 }
 
-void alocarVetorTextos(int tamanho) {
-	vetorTextos = getVetorTextos();
+void texto_alocarVetor(int tamanho) {
+	vetorTextos = texto_getVetor();
 	vetorTextos = malloc(tamanho * sizeof(struct structTexto));
 }
 
-void inicializarVetorTextos(int tamanho) {
+void texto_inicializarVetor(int tamanho) {
 	for(int i = 0; i < tamanho; i++) {
 		vetorTextos[i] = NULL;
 	}
 }
 
-void freeVetorTextos(int tamanho) {
+void texto_freeVetor(int tamanho) {
 	for(int i = 0; i < tamanho; i++) {
 		if(vetorTextos[i] != NULL) {
-			freeTexto(vetorTextos[i]);
+			texto_free(vetorTextos[i]);
 		}
 	}
 	free(vetorTextos);

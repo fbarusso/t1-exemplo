@@ -14,7 +14,7 @@ typedef struct structForma * ponteiroForma;
 
 static Forma* vetorFormas;
 
-Forma criarForma(int id, double x, double y, double r, double w, double h, char* corBorda, 
+Forma forma_criar(int id, double x, double y, double r, double w, double h, char* corBorda, 
 char* corPreenchimento, char* tipo) {
 
 	ponteiroForma forma;
@@ -22,9 +22,9 @@ char* corPreenchimento, char* tipo) {
 	forma = malloc(sizeof(struct structForma));
 
 	forma->id = id;
-	forma->r = r;
 	forma->x = x;
 	forma->y = y;
+	forma->r = r;
 	forma->w = w;
 	forma->h = h;
 
@@ -35,40 +35,75 @@ char* corPreenchimento, char* tipo) {
 	return forma;
 }
 
-int getFormaId(Forma formaParametro) {
+int forma_getId(Forma formaParametro) {
 	ponteiroForma forma = (ponteiroForma) formaParametro;
 	return forma->id;
 }
 
-char* getFormaTipo(Forma formaParametro) {
+double forma_getX(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->x;
+}
+
+double forma_getY(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->y;
+}
+
+double forma_getR(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->r;
+}
+
+double forma_getW(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->w;
+}
+
+double forma_getH(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->h;
+}
+
+char* forma_getCorBorda(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->corBorda;
+}
+
+char* forma_getCorPreenchimento(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	return forma->corPreenchimento;
+}
+
+char* forma_getTipo(Forma formaParametro) {
 	ponteiroForma forma = (ponteiroForma) formaParametro;
 	return forma->tipo;
 }
 
 // TODO: Arrumar para ser acessado fora
-void freeForma(Forma formaParametro) {
+void forma_free(Forma formaParametro) {
 	free(formaParametro);
 }
 
-Forma* getVetorFormas() {
+Forma* forma_getVetor() {
 	return vetorFormas;
 }
 
-void alocarVetorFormas(int tamanho) {
-	vetorFormas = getVetorFormas();
+void forma_alocarVetor(int tamanho) {
+	vetorFormas = forma_getVetor();
 	vetorFormas = malloc(tamanho * sizeof(struct structForma));
 }
 
-void inicializarVetorFormas(int tamanho) {
+void forma_inicializarVetor(int tamanho) {
 	for(int i = 0; i < tamanho; i++) {
 		vetorFormas[i] = NULL;
 	}
 }
 
-void freeVetorFormas(int tamanho) {
+void forma_freeVetor(int tamanho) {
 	for(int i = 0; i < tamanho; i++) {
 		if(vetorFormas[i] != NULL) {
-			freeForma(vetorFormas[i]);
+			forma_free(vetorFormas[i]);
 		}
 	}
 	free(vetorFormas);

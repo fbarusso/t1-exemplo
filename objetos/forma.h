@@ -3,21 +3,35 @@
 
 typedef void* Forma;
 
-Forma criarForma(int id, double x, double y, double r, double w, double h, char* corBorda, 
+Forma forma_criar(int id, double x, double y, double r, double w, double h, char* corBorda, 
 char* corPreenchimento, char* tipo);
 
-int getShapeId(Forma formaParametro);
+int forma_getId(Forma formaParametro);
 
-char* getFormaTipo(Forma formaParametro);
+double forma_getX(Forma formaParametro);
 
-void freeForma(Forma formaParametro);
+double forma_getY(Forma formaParametro);
 
-Forma* getVetorFormas();
+double forma_getR(Forma formaParametro);
 
-void alocarVetorFormas(int tamanho);
+double forma_getW(Forma formaParametro);
 
-void inicializarVetorFormas(int tamanho);
+double forma_getH(Forma formaParametro);
 
-void freeVetorFormas(int tamanho);
+char* forma_getCorBorda(Forma formaParametro);
+
+char* forma_getCorPreenchimento(Forma formaParametro);
+
+char* forma_getTipo(Forma formaParametro);
+
+void forma_free(Forma formaParametro);
+
+Forma* forma_getVetor();
+
+void forma_alocarVetor(int tamanho);
+
+void forma_inicializarVetor(int tamanho);
+
+void forma_freeVetor(int tamanho);
 
 #endif
