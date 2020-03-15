@@ -26,6 +26,16 @@ char* forma_getCorPreenchimento(Forma formaParametro);
 
 char* forma_getTipo(Forma formaParametro);
 
+double forma_getXMaximo(Forma formaParametro);
+
+double forma_getYMaximo(Forma formaParametro);
+
+double forma_getXMinimo(Forma formaParametro);
+
+double forma_getYMinimo(Forma formaParametro);
+
+Forma forma_getFormaPorId(int id);
+
 void forma_free(Forma formaParametro);
 
 Forma* forma_getVetor();

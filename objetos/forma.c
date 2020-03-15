@@ -87,6 +87,48 @@ char* forma_getTipo(Forma formaParametro) {
 	return forma->tipo;
 }
 
+double forma_getXMaximo(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	if(!strcmp(forma->tipo, "c")) {
+		return forma->x + forma->r;
+	}
+	return forma->x + forma->w;
+}
+
+double forma_getYMaximo(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	if(!strcmp(forma->tipo, "c")) {
+		return forma->y + forma->r;
+	}
+	return forma->y + forma->h;
+}
+
+double forma_getXMinimo(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	if(!strcmp(forma->tipo, "c")) {
+		return forma->x - forma->r;
+	}
+	return forma->x;
+}
+
+double forma_getYMinimo(Forma formaParametro) {
+	ponteiroForma forma = (ponteiroForma) formaParametro;
+	if(!strcmp(forma->tipo, "c")) {
+		return forma->y - forma->r;
+	}
+	return forma->y;
+}
+
+Forma forma_getFormaPorId(int id) {
+	for(int i = 0; i < contador+1; i++) {
+		if(forma_getId(vetorFormas[i]) == id) {
+			return vetorFormas[i];
+		}
+	}
+	printf("Erro em forma_getFormaPorId\n");
+	exit(1);
+}
+
 // TODO: Arrumar para ser acessado fora
 void forma_free(Forma formaParametro) {
 	free(formaParametro);

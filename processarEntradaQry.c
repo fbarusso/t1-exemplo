@@ -2,9 +2,12 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "arquivos.h"
+#include "consultas/fase1/fase1.h"
 
 void processarEntradaQry() {
 	char operacao[8];
+	int j, k;
 
 	FILE* arquivoEntradaQry = getArquivoEntradaQry();
 
@@ -16,7 +19,8 @@ void processarEntradaQry() {
 		}
 
 		if(!strcmp(operacao, "o?")) {
-			consulta_o();
+			fscanf(arquivoEntradaQry, "%d %d", &j, &k);
+			consulta_o(j, k);
 		}
 
 		/*
@@ -41,6 +45,4 @@ void processarEntradaQry() {
 		}
 		*/
 	}
-
-	printf ("Segmentation fault (Core dumped)\n");
 }

@@ -17,6 +17,7 @@ void processarEntrada() {
 
 	FILE* arquivoEntradaGeo = getArquivoEntradaGeo();
 	FILE* arquivoSaidaSvg =  getArquivoSaidaSvg();
+	FILE* arquivoSaidaConsultaSvg = getArquivoSaidaConsultaSvg();
 
 	fscanf(arquivoEntradaGeo, "%s", operacao);
 
@@ -42,11 +43,13 @@ void processarEntrada() {
 	svg_imprimirVetorTextos(arquivoSaidaSvg, nx);
 	svg_adicionarTagFinal(arquivoSaidaSvg);
 
-	/*
 	if(getFlagConsulta()) {
+		svg_adicionarTagInicial(arquivoSaidaConsultaSvg);
 		processarEntradaQry();
+		svg_imprimirVetorFormas(arquivoSaidaConsultaSvg, nx);
+		svg_imprimirVetorTextos(arquivoSaidaConsultaSvg, nx);
+		svg_adicionarTagFinal(arquivoSaidaConsultaSvg);
 	}
-	*/
 
 	forma_freeVetor(nx);
 	texto_freeVetor(nx);

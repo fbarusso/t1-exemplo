@@ -60,3 +60,18 @@ void svg_imprimirVetorTextos(FILE* arquivoSaida, int tamanho) {
 		}
 	}
 }
+
+void svg_imprimirRetanguloDelimitador(FILE* arquivoSaida, double x1, double y1, double w, double h, 
+bool sobrepoe) {
+	fprintf(arquivoSaida, "\n\t<rect");
+	fprintf(arquivoSaida, "\n\t\tx=\"%lf\"", x1);
+	fprintf(arquivoSaida, "\n\t\ty=\"%lf\"", y1);
+	fprintf(arquivoSaida, "\n\t\twidth=\"%lf\"", w);
+	fprintf(arquivoSaida, "\n\t\theight=\"%lf\"", h);
+	fprintf(arquivoSaida, "\n\t\tstroke=\"red\"");
+	fprintf(arquivoSaida, "\n\t\tstroke-width=\"2\"");
+	if(!sobrepoe) {
+		fprintf(arquivoSaida, "\n\t\tstroke-dasharray=\"10\"");
+	}
+	fprintf(arquivoSaida, "\n\t\tfill=\"none\"\n\t/>\n");
+}
